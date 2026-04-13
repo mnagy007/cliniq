@@ -1,0 +1,11 @@
+# Ignore all files by default
+*
+
+# But not .java files
+*.java
+
+# Don't ignore these directories (they contain Java source)
+!*/
+
+# Ignore build outputs
+target/
