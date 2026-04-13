@@ -71,6 +71,9 @@ public class AppointmentService implements
 
         appointmentRepository.save(appointment);
 
+        // AppointmentScheduled downstream work (reminder creation) is handled
+        // asynchronously via the outbox — do NOT also publish synchronously here,
+        // or any future DomainEventPublisher adapter would process the event twice.
         OutboxEntry outboxEntry = OutboxEntry.create(
                 command.tenantId(),
                 "Appointment",
@@ -78,8 +81,7 @@ public class AppointmentService implements
                 "AppointmentScheduled",
                 appointment.getId().value().toString());
         outboxRepository.save(outboxEntry);
-
-        eventPublisher.publish(appointment.pullDomainEvents());
+        appointment.pullDomainEvents(); // drain aggregate events; delivery is via outbox
 
         return appointment.getId();
     }
