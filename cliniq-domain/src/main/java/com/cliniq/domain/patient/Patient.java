@@ -78,4 +78,10 @@ public class Patient extends AggregateRoot<PatientId> {
     public NotificationPreference getNotificationPreference() {
         return notificationPreference;
     }
+
+    public static Patient reconstruct(PatientId id, TenantId tenantId, PersonalInfo personalInfo,
+                               ContactInfo contactInfo, MedicalRecordNumber medicalRecordNumber,
+                               NotificationPreference notificationPreference) {
+        return new Patient(id, tenantId, personalInfo, contactInfo, medicalRecordNumber, notificationPreference);
+    }
 }

@@ -154,4 +154,13 @@ public class Appointment extends AggregateRoot<AppointmentId> {
     public long getVersion() {
         return version;
     }
+
+    public static Appointment reconstruct(AppointmentId id, TenantId tenantId, PatientId patientId,
+                                          ProviderId providerId, TimeSlot timeSlot,
+                                          AppointmentType appointmentType,
+                                          AppointmentStatus appointmentStatus,
+                                          List<Prescription> prescriptions, long version) {
+        return new Appointment(id, tenantId, patientId, providerId, timeSlot, appointmentType,
+                appointmentStatus, prescriptions, version);
+    }
 }

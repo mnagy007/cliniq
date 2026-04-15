@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find *)",
+      "Bash(mkdir *)",
+      "Bash(./mvnw *)",
+      "Bash(mvn *)",
+      "Bash(xargs *)"
+    ]
+  },
+  "$version": 3
+}
