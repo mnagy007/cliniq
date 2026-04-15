@@ -87,4 +87,10 @@ public class OutboxEntry extends AggregateRoot<OutboxEntryId> {
     public Instant getProcessedAt() {
         return processedAt;
     }
+
+    public static OutboxEntry reconstruct(OutboxEntryId id, TenantId tenantId, String aggregateType,
+                                           String aggregateId, String eventType, String payload,
+                                           Instant occurredAt, Instant processedAt) {
+        return new OutboxEntry(id, tenantId, aggregateType, aggregateId, eventType, payload, occurredAt, processedAt);
+    }
 }
