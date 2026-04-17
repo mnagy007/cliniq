@@ -2,17 +2,23 @@ package com.cliniq.web.security;
 
 import com.cliniq.shared.domain.TenantId;
 
-import java.util.UUID;
+public final class TenantContext {
 
-/**
- * Stub tenant context - will be replaced with proper implementation (T115).
- */
-public class TenantContext {
+    private static final ThreadLocal<TenantId> CURRENT = new ThreadLocal<>();
 
     private TenantContext() {}
 
+    public static void set(TenantId id) {
+        CURRENT.set(id);
+    }
+
     public static TenantId require() {
-        // TODO: Replace with actual tenant resolution from security context (T115)
-        return TenantId.of(UUID.randomUUID());
+        TenantId id = CURRENT.get();
+        if (id == null) throw new TenantResolutionException("No tenant in context");
+        return id;
+    }
+
+    public static void clear() {
+        CURRENT.remove();
     }
 }
