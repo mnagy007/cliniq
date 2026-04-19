@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   postgres:
@@ -17,6 +17,19 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  app:
+    build: .
+    container_name: cliniq-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cliniq
+      SPRING_DATASOURCE_USERNAME: cliniq
+      SPRING_DATASOURCE_PASSWORD: cliniq
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   postgres_data:

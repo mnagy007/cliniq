@@ -1,12 +1,14 @@
 package com.cliniq.persistence.appointment.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Filter;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name="calendar_credentials")
+@Filter(name = "tenantFilter", condition = "tenant_id = :tenantId")
 public class JpaCalendarCredential {
 
     @Id

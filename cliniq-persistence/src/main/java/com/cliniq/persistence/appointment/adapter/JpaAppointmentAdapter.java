@@ -5,7 +5,6 @@ import com.cliniq.domain.appointment.Appointment;
 import com.cliniq.domain.appointment.AppointmentId;
 import com.cliniq.domain.patient.PatientId;
 import com.cliniq.domain.provider.ProviderId;
-import com.cliniq.persistence.appointment.entity.JpaAppointment;
 import com.cliniq.persistence.appointment.entity.JpaPrescription;
 import com.cliniq.persistence.appointment.mapper.JpaAppointmentMapper;
 import com.cliniq.persistence.appointment.repository.JpaAppointmentRepository;
@@ -30,8 +29,8 @@ public class JpaAppointmentAdapter implements AppointmentRepository {
 
     @Override
     public void save(Appointment appointment) {
-        JpaAppointment jpaAppointment = JpaAppointmentMapper.toJpa(appointment);
-        jpaAppointmentRepository.save(jpaAppointment);
+        JpaAppointmentMapper.toJpa(appointment);
+        jpaAppointmentRepository.save(JpaAppointmentMapper.toJpa(appointment));
 
         List<com.cliniq.domain.appointment.Prescription> prescriptions = appointment.getPrescriptions();
         List<JpaPrescription> existingPrescriptions = jpaPrescriptionRepository.findByAppointmentId(appointment.getId().value());

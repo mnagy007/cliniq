@@ -18,6 +18,10 @@ public final class TenantContext {
         return id;
     }
 
+    public static TenantId get() {
+        return CURRENT.get();
+    }
+
     public static void clear() {
         CURRENT.remove();
     }

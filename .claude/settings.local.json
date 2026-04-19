@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(bash:*)",
-      "Bash(/bin/bash:*)"
+      "Bash(/bin/bash:*)",
+      "Bash(mvn help:describe -Dplugin=spring-boot-maven-plugin)"
     ]
   },
   "outputStyle": "Learning"

@@ -44,9 +44,9 @@ resilience4j:
         permitted-number-of-calls-in-half-open-state: 10
 
 twilio:
-  account-sid: ${TWILIO_ACCOUNT_SID}
-  auth-token: ${TWILIO_AUTH_TOKEN}
-  phone-number: ${TWILIO_PHONE_NUMBER}
+  account-sid: ${TWILIO_ACCOUNT_SID:}
+  auth-token: ${TWILIO_AUTH_TOKEN:}
+  phone-number: ${TWILIO_PHONE_NUMBER:}
 
 sendgrid:
   from-email: ${SENDGRID_FROM_EMAIL:noreply@cliniq.com}
@@ -57,12 +57,12 @@ openfda:
 google:
   calendar:
     base-url: ${GOOGLE_CALENDAR_BASE_URL:https://www.googleapis.com}
-    client-id: ${GOOGLE_OAUTH2_CLIENT_ID}
-    client-secret: ${GOOGLE_OAUTH2_CLIENT_SECRET}
+    client-id: ${GOOGLE_OAUTH2_CLIENT_ID:}
+    client-secret: ${GOOGLE_OAUTH2_CLIENT_SECRET:}
 
 cliniq:
   encryption:
-    key: ${CLINIQ_ENCRYPTION_KEY}
+    key: ${CLINIQ_ENCRYPTION_KEY:}
   outbox:
     poll-delay-ms: ${OUTBOX_POLL_DELAY_MS:5000}
     batch-size: ${OUTBOX_BATCH_SIZE:50}

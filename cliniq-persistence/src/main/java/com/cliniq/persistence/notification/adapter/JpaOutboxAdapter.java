@@ -2,7 +2,6 @@ package com.cliniq.persistence.notification.adapter;
 
 import com.cliniq.application.notification.port.out.OutboxRepository;
 import com.cliniq.domain.notification.OutboxEntry;
-import com.cliniq.persistence.notification.entity.JpaOutboxEntry;
 import com.cliniq.persistence.notification.mapper.JpaOutboxEntryMapper;
 import com.cliniq.persistence.notification.repository.JpaOutboxEntryRepository;
 
@@ -18,8 +17,8 @@ public class JpaOutboxAdapter implements OutboxRepository {
 
     @Override
     public void save(OutboxEntry entry) {
-        JpaOutboxEntry jpa = JpaOutboxEntryMapper.toJpa(entry);
-        jpaOutboxEntryRepository.save(jpa);
+        JpaOutboxEntryMapper.toJpa(entry);
+        jpaOutboxEntryRepository.save(JpaOutboxEntryMapper.toJpa(entry));
     }
 
     @Override

@@ -53,7 +53,7 @@ public class ExternalAdapterConfig {
     }
 
     @Bean
-    public OpenFdaMedicationAdapter openFdaMedicationAdapter(RestClient openFdaRestClient,
+    public OpenFdaMedicationAdapter openFdaMedicationAdapter(@Qualifier("openFdaRestClient") RestClient openFdaRestClient,
                                                               Cache<String, List<MedicationReference>> medicationCache,
                                                               ObjectMapper objectMapper) {
         return new OpenFdaMedicationAdapter(openFdaRestClient, medicationCache, objectMapper);

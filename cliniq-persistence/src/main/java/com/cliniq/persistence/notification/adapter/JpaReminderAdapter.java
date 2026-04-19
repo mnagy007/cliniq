@@ -4,7 +4,6 @@ import com.cliniq.application.notification.port.out.ReminderRepository;
 import com.cliniq.domain.appointment.AppointmentId;
 import com.cliniq.domain.notification.Reminder;
 import com.cliniq.domain.notification.ReminderId;
-import com.cliniq.persistence.notification.entity.JpaReminder;
 import com.cliniq.persistence.notification.mapper.JpaReminderMapper;
 import com.cliniq.persistence.notification.repository.JpaReminderRepository;
 import com.cliniq.shared.domain.TenantId;
@@ -22,8 +21,8 @@ public class JpaReminderAdapter implements ReminderRepository {
 
     @Override
     public void save(Reminder reminder) {
-        JpaReminder jpa = JpaReminderMapper.toJpa(reminder);
-        jpaReminderRepository.save(jpa);
+        JpaReminderMapper.toJpa(reminder);
+        jpaReminderRepository.save(JpaReminderMapper.toJpa(reminder));
     }
 
     @Override
