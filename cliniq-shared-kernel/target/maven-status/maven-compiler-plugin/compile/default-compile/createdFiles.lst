@@ -1,6 +1,0 @@
-com/cliniq/shared/domain/AggregateRoot.class
-com/cliniq/shared/domain/TenantId.class
-com/cliniq/shared/domain/DomainEvent.class
-com/cliniq/shared/domain/ValueObject.class
-com/cliniq/shared/domain/DomainException.class
-com/cliniq/shared/validation/Preconditions.class

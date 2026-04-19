@@ -5,6 +5,6 @@ import com.cliniq.domain.appointment.AppointmentId;
 import com.cliniq.shared.domain.TenantId;
 
 public interface CalendarSyncPort {
-    void syncAppointment(Appointment appointment);
-    void deleteEvent(AppointmentId appointmentId, TenantId tenantId);
+    String syncAppointment(Appointment appointment);
+    void deleteEvent(String eventId, TenantId tenantId);
 }

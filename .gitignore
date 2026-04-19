@@ -1,11 +1,27 @@
-# Ignore all files by default
-*
-
-# But not .java files
-*.java
-
-# Don't ignore these directories (they contain Java source)
-!*/
-
-# Ignore build outputs
+# Build outputs
 target/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear

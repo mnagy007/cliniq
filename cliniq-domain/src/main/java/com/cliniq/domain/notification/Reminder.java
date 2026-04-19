@@ -94,4 +94,9 @@ public class Reminder extends AggregateRoot<ReminderId> {
     public ReminderStatus getStatus() {
         return status;
     }
+
+    public static Reminder reconstruct(ReminderId id, TenantId tenantId, AppointmentId appointmentId,
+                                        PatientId patientId, Channel channel, ReminderStatus status) {
+        return new Reminder(id, tenantId, appointmentId, patientId, channel, status);
+    }
 }

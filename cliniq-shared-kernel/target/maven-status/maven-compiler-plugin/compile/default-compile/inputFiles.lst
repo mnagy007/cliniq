@@ -1,6 +1,0 @@
-/Users/mohamednagy/projects/cliniq/cliniq-shared-kernel/src/main/java/com/cliniq/shared/domain/AggregateRoot.java
-/Users/mohamednagy/projects/cliniq/cliniq-shared-kernel/src/main/java/com/cliniq/shared/domain/DomainEvent.java
-/Users/mohamednagy/projects/cliniq/cliniq-shared-kernel/src/main/java/com/cliniq/shared/domain/DomainException.java
-/Users/mohamednagy/projects/cliniq/cliniq-shared-kernel/src/main/java/com/cliniq/shared/domain/TenantId.java
-/Users/mohamednagy/projects/cliniq/cliniq-shared-kernel/src/main/java/com/cliniq/shared/domain/ValueObject.java
-/Users/mohamednagy/projects/cliniq/cliniq-shared-kernel/src/main/java/com/cliniq/shared/validation/Preconditions.java

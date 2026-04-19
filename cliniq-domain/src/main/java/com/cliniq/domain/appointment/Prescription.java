@@ -23,6 +23,10 @@ public class Prescription {
         return new Prescription(PrescriptionId.generate(), medication, dosage, instructions);
     }
 
+    public static Prescription reconstruct(PrescriptionId id, MedicationReference medication, String dosage, String instructions) {
+        return new Prescription(id, medication, dosage, instructions);
+    }
+
     public PrescriptionId getId() {
         return id;
     }

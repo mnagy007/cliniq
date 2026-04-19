@@ -80,4 +80,9 @@ public class Provider extends AggregateRoot<ProviderId> {
     public List<AvailabilitySlot> getAvailabilitySlots() {
         return availabilitySlots;
     }
+
+    public static Provider reconstruct(ProviderId id, TenantId tenantId, ProviderName name,
+                                       Specialty specialty, List<AvailabilitySlot> availabilitySlots) {
+        return new Provider(id, tenantId, name, specialty, availabilitySlots);
+    }
 }
